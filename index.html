@@ -1,348 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ahmad Nabil | Android Developer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ahmad Nabil | Android Developer</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
 
-    body {
-      background: #0b0f0d;
-      color: #e8f5e9;
-      line-height: 1.7;
-    }
+body {
+  background: #0b0f0d;
+  color: #e8f5e9;
+}
 
-    header {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 40px 20px;
-      background: radial-gradient(circle at top, #1db95433, #0b0f0d 60%);
-    }
+/* ANIMATION */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
-    .hero {
-      max-width: 850px;
-    }
+.fade {
+  animation: fadeUp 1s ease forwards;
+}
 
-    .badge {
-      display: inline-block;
-      padding: 8px 18px;
-      border: 1px solid #3ddc84;
-      border-radius: 30px;
-      color: #3ddc84;
-      margin-bottom: 20px;
-      font-weight: bold;
-    }
+/* HERO */
+header {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: radial-gradient(circle at top, #3ddc8433, #0b0f0d);
+}
 
-    h1 {
-      font-size: 56px;
-      color: #ffffff;
-    }
+.hero {
+  max-width: 800px;
+}
 
-    h2 {
-      font-size: 28px;
-      color: #3ddc84;
-      margin: 10px 0 20px;
-    }
+/* PROFILE IMAGE */
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid #3ddc84;
+  margin-bottom: 20px;
+  animation: fadeUp 1.2s ease;
+}
 
-    .hero p {
-      color: #c8e6c9;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
+/* TEXT */
+h1 {
+  font-size: 50px;
+}
 
-    .buttons a {
-      display: inline-block;
-      margin: 8px;
-      padding: 12px 24px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+h2 {
+  color: #3ddc84;
+  margin: 10px 0;
+}
 
-    .primary {
-      background: #3ddc84;
-      color: #07110b;
-    }
+p {
+  color: #c8e6c9;
+  margin: 20px 0;
+}
 
-    .secondary {
-      border: 1px solid #3ddc84;
-      color: #3ddc84;
-    }
+/* BUTTONS */
+.btn {
+  display: inline-block;
+  padding: 12px 25px;
+  margin: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
 
-    section {
-      max-width: 1100px;
-      margin: auto;
-      padding: 70px 20px;
-    }
+.primary {
+  background: #3ddc84;
+  color: black;
+}
 
-    .section-title {
-      font-size: 34px;
-      color: #ffffff;
-      margin-bottom: 25px;
-      border-left: 5px solid #3ddc84;
-      padding-left: 15px;
-    }
+.secondary {
+  border: 1px solid #3ddc84;
+  color: #3ddc84;
+}
 
-    .card {
-      background: #111a15;
-      border: 1px solid #1f3d2b;
-      border-radius: 18px;
-      padding: 25px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 25px #00000055;
-    }
+/* SECTIONS */
+section {
+  padding: 70px 20px;
+  max-width: 1000px;
+  margin: auto;
+}
 
-    .card h3 {
-      color: #3ddc84;
-      margin-bottom: 8px;
-    }
+.title {
+  font-size: 30px;
+  margin-bottom: 20px;
+  border-left: 4px solid #3ddc84;
+  padding-left: 10px;
+}
 
-    .date {
-      color: #9ccc9c;
-      font-size: 14px;
-      margin-bottom: 12px;
-    }
+/* CARDS */
+.card {
+  background: #111a15;
+  padding: 20px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+  animation: fadeUp 1s ease;
+}
 
-    ul {
-      padding-left: 20px;
-    }
+/* PROJECTS */
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 15px;
+}
 
-    .skills {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
-    }
+.project {
+  background: #0f1712;
+  padding: 20px;
+  border-radius: 15px;
+  transition: 0.3s;
+}
 
-    .skill {
-      background: #0f1712;
-      border: 1px solid #2e7d32;
-      padding: 14px;
-      border-radius: 12px;
-      color: #dfffe3;
-      text-align: center;
-    }
+.project:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 15px #3ddc8444;
+}
 
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 20px;
-    }
-
-    .project {
-      background: linear-gradient(145deg, #111a15, #0b120e);
-      border: 1px solid #1f3d2b;
-      border-radius: 18px;
-      padding: 22px;
-      transition: 0.3s;
-    }
-
-    .project:hover {
-      transform: translateY(-6px);
-      border-color: #3ddc84;
-      box-shadow: 0 0 25px #3ddc8444;
-    }
-
-    .project h3 {
-      color: #3ddc84;
-      margin-bottom: 10px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 35px 20px;
-      background: #070a08;
-      color: #9ccc9c;
-    }
-
-    .contact a {
-      color: #3ddc84;
-      text-decoration: none;
-      display: block;
-      margin: 8px 0;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 40px;
-      }
-
-      h2 {
-        font-size: 22px;
-      }
-    }
-  </style>
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  color: #aaa;
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="hero">
-      <span class="badge">Available for Android Development</span>
-      <h1>Ahmad Nabil Al Smadi</h1>
-      <h2>Android Developer</h2>
-      <p>
-        Android Developer with 3 years of hands-on experience in Java and Kotlin.
-        Skilled in building reliable, scalable Android applications for B2B solutions
-        and FinTech, using MVVM, REST APIs, Room Database, Firebase, and Clean Architecture.
-      </p>
+<header>
+  <div class="hero">
 
-      <div class="buttons">
-        <a href="#projects" class="primary">View Projects</a>
-        <a href="#contact" class="secondary">Contact Me</a>
-      </div>
-    </div>
-  </header>
+    <img src="ahmad.png" class="profile-img" alt="Ahmad">
 
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <div class="card">
-      <p>
-        I am an Android Developer based in Amman, Jordan. I have experience developing
-        Android applications using Java and Kotlin, integrating APIs, working with local
-        databases, Firebase, hardware components, and applying clean code principles.
-      </p>
-    </div>
-  </section>
+    <h1 class="fade">Ahmad Nabil</h1>
+    <h2 class="fade">Android Developer</h2>
 
-  <section id="experience">
-    <h2 class="section-title">Experience</h2>
+    <p class="fade">
+      I build modern Android apps using Kotlin And Java
+    </p>
 
-    <div class="card">
-      <h3>Ejabi for Reliable Applications — Android Developer</h3>
-      <p class="date">April 2024 — Present</p>
-      <ul>
-        <li>Developed Android applications using Java and Kotlin.</li>
-        <li>Worked on B2B solutions and FinTech applications.</li>
-        <li>Integrated hardware components into Android apps.</li>
-        <li>Implemented RESTful APIs for backend communication.</li>
-        <li>Used Room Database and LiveData for local storage and real-time UI updates.</li>
-        <li>Applied Dependency Injection and Clean Architecture principles.</li>
-      </ul>
+    <a href="#projects" class="btn primary">Projects</a>
+    <a href="#contact" class="btn secondary">Contact</a>
+
+  </div>
+</header>
+
+<section>
+  <h2 class="title">About</h2>
+  <div class="card">
+    Android Developer with 3+ years experience building scalable mobile apps.
+  </div>
+</section>
+
+<section id="projects">
+  <h2 class="title">Projects</h2>
+
+  <div class="projects">
+
+    <div class="project">
+      <h3>Help Me</h3>
+      <p>Find nearest helper for car problems.</p>
     </div>
 
-    <div class="card">
-      <h3>Clever Mind POB ICT — Android Developer</h3>
-      <p class="date">August 2022 — March 2024</p>
-      <ul>
-        <li>Applied software development best practices.</li>
-        <li>Worked on code refactoring and documentation.</li>
-        <li>Integrated camera, biometric, and microphone hardware features.</li>
-        <li>Implemented RESTful APIs for smooth app-server communication.</li>
-      </ul>
+    <div class="project">
+      <h3>Reelzaty</h3>
+      <p>Video sharing app like Instagram.</p>
     </div>
-  </section>
 
-  <section id="skills">
-    <h2 class="section-title">Skills</h2>
-
-    <div class="skills">
-      <div class="skill">Java</div>
-      <div class="skill">Kotlin</div>
-      <div class="skill">Android Studio</div>
-      <div class="skill">RESTful APIs</div>
-      <div class="skill">Firebase</div>
-      <div class="skill">Room Database</div>
-      <div class="skill">LiveData</div>
-      <div class="skill">MVVM</div>
-      <div class="skill">MVC</div>
-      <div class="skill">Dependency Injection</div>
-      <div class="skill">Clean Architecture</div>
-      <div class="skill">Material Design</div>
-      <div class="skill">Hardware Integration</div>
-      <div class="skill">Problem Solving</div>
-      <div class="skill">Teamwork</div>
+    <div class="project">
+      <h3>Shop App</h3>
+      <p>E-commerce mobile app.</p>
     </div>
-  </section>
 
-  <section id="projects">
-    <h2 class="section-title">Projects</h2>
+  </div>
+</section>
 
-    <div class="projects">
+<section id="contact">
+  <h2 class="title">Contact</h2>
+  <div class="card">
+    <p>Email: ahmadnabil96@hotmail.com</p>
+    <p>GitHub: github.com/ahmad-nabil</p>
+  </div>
+</section>
 
-      <div class="project">
-        <h3>Help Me App</h3>
-        <p>
-          Dynamic app with two account types: user and helper. The app helps users
-          find the nearest helper when they face a car problem.
-        </p>
-        <p><strong>Tech:</strong> Java, Firebase, JSON, REST API, Shared Preferences, MVC</p>
-      </div>
-
-      <div class="project">
-        <h3>Reelzaty</h3>
-        <p>
-          Video-sharing app similar to Instagram. Users can upload videos to Firebase
-          Storage and view uploaded videos in the home and profile sections.
-        </p>
-        <p><strong>Tech:</strong> Java, Firebase, MVVM, Biometric Authentication</p>
-      </div>
-
-      <div class="project">
-        <h3>Shop For Everyone</h3>
-        <p>
-          E-commerce Android application developed based on PRD requirements,
-          allowing users to buy clothes online.
-        </p>
-        <p><strong>Tech:</strong> Java, Firebase, MVVM, PayPal SDK</p>
-      </div>
-
-      <div class="project">
-        <h3>Weather Jordan</h3>
-        <p>
-          Weather app that shows Jordan weather forecast for 8 days using OpenWeather API
-          and Mapbox Geocoding API.
-        </p>
-        <p><strong>Tech:</strong> Java, Retrofit, Fused Location Provider, Mapbox</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="education">
-    <h2 class="section-title">Education</h2>
-    <div class="card">
-      <h3>Al Balqa Applied University</h3>
-      <p>Bachelor's Degree in Computer Science</p>
-      <p class="date">September 2017 — September 2020</p>
-    </div>
-  </section>
-
-  <section id="courses">
-    <h2 class="section-title">Courses</h2>
-    <div class="card">
-      <ul>
-        <li>PM and QA — 30 Hours — Clever Mind POB ICT</li>
-        <li>Kotlin for Java Developer</li>
-        <li>Version Tools</li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="card contact">
-      <p>Let’s build something great together.</p>
-      <a href="mailto:ahmadnabil96@hotmail.com">ahmadnabil96@hotmail.com</a>
-      <a href="tel:+962791062638">+962 79 106 2638</a>
-      <a href="https://github.com/ahmad-nabil" target="_blank">GitHub</a>
-      <a href="#" target="_blank">LinkedIn</a>
-      <p>Amman, Jordan</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Ahmad Nabil Al Smadi — Android Developer</p>
-  </footer>
+<footer>
+  © 2025 Ahmad Nabil
+</footer>
 
 </body>
 </html>
