@@ -10,28 +10,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial;
+  font-family: 'Segoe UI', sans-serif;
 }
 
 body {
-  background: #0b0f0d;
+  background: linear-gradient(180deg, #050807, #0b0f0d);
   color: #e8f5e9;
 }
 
 /* ANIMATION */
 @keyframes fadeUp {
-  from {
-    opacity: 0;
-    transform: translateY(40px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.fade {
-  animation: fadeUp 1s ease forwards;
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
 }
 
 /* HERO */
@@ -41,26 +31,27 @@ header {
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: radial-gradient(circle at top, #3ddc8433, #0b0f0d);
+  background: radial-gradient(circle at top, #3ddc8444, #050807 70%);
 }
 
 .hero {
   max-width: 800px;
+  animation: fadeUp 1s ease;
 }
 
-/* PROFILE IMAGE */
+/* IMAGE */
 .profile-img {
-  width: 150px;
-  height: 150px;
+  width: 160px;
+  height: 160px;
   border-radius: 50%;
   border: 3px solid #3ddc84;
   margin-bottom: 20px;
-  animation: fadeUp 1.2s ease;
+  box-shadow: 0 0 25px #3ddc84aa;
 }
 
 /* TEXT */
 h1 {
-  font-size: 50px;
+  font-size: 52px;
 }
 
 h2 {
@@ -69,23 +60,28 @@ h2 {
 }
 
 p {
-  color: #c8e6c9;
+  color: #b7e4c7;
   margin: 20px 0;
 }
 
 /* BUTTONS */
 .btn {
   display: inline-block;
-  padding: 12px 25px;
+  padding: 12px 28px;
   margin: 10px;
-  border-radius: 10px;
+  border-radius: 12px;
   text-decoration: none;
   font-weight: bold;
+  transition: 0.3s;
 }
 
 .primary {
-  background: #3ddc84;
+  background: linear-gradient(135deg, #3ddc84, #00c853);
   color: black;
+}
+
+.primary:hover {
+  box-shadow: 0 0 20px #3ddc84;
 }
 
 .secondary {
@@ -93,53 +89,81 @@ p {
   color: #3ddc84;
 }
 
-/* SECTIONS */
+.secondary:hover {
+  background: #3ddc84;
+  color: black;
+}
+
+/* SECTION */
 section {
-  padding: 70px 20px;
+  padding: 80px 20px;
   max-width: 1000px;
   margin: auto;
 }
 
 .title {
-  font-size: 30px;
-  margin-bottom: 20px;
+  font-size: 32px;
+  margin-bottom: 25px;
   border-left: 4px solid #3ddc84;
-  padding-left: 10px;
+  padding-left: 12px;
 }
 
-/* CARDS */
+/* CARD */
 .card {
-  background: #111a15;
-  padding: 20px;
-  border-radius: 15px;
+  background: linear-gradient(145deg, #0f1712, #0a0f0c);
+  border: 1px solid #1f3d2b;
+  padding: 25px;
+  border-radius: 18px;
   margin-bottom: 20px;
   animation: fadeUp 1s ease;
+  box-shadow: 0 0 20px #00000066;
 }
 
 /* PROJECTS */
-.projects {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 15px;
-}
-
 .project {
-  background: #0f1712;
-  padding: 20px;
-  border-radius: 15px;
+  background: linear-gradient(145deg, #111a15, #0b120e);
+  border: 1px solid #1f3d2b;
+  border-radius: 18px;
+  padding: 25px;
+  margin-bottom: 20px;
   transition: 0.3s;
 }
 
 .project:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 0 15px #3ddc8444;
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px #3ddc8444;
+  border-color: #3ddc84;
+}
+
+.project h3 {
+  color: #3ddc84;
+  margin-bottom: 10px;
+}
+
+.tech {
+  font-size: 14px;
+  color: #9ccc9c;
+  margin: 10px 0;
+}
+
+.project a {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3ddc84;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+/* CONTACT */
+.contact p {
+  margin: 8px 0;
 }
 
 /* FOOTER */
 footer {
   text-align: center;
   padding: 30px;
-  color: #aaa;
+  color: #777;
 }
 </style>
 </head>
@@ -148,57 +172,61 @@ footer {
 
 <header>
   <div class="hero">
+    <img src="ahmad.png" class="profile-img">
 
-    <img src="ahmad.png" class="profile-img" alt="Ahmad">
+    <h1>Ahmad Nabil</h1>
+    <h2>Android Developer</h2>
 
-    <h1 class="fade">Ahmad Nabil</h1>
-    <h2 class="fade">Android Developer</h2>
-
-    <p class="fade">
-      I build modern Android apps using Kotlin And Java
+    <p>
+      Building scalable Android apps using Kotlin, Java, MVVM, and Clean Architecture
     </p>
 
     <a href="#projects" class="btn primary">Projects</a>
     <a href="#contact" class="btn secondary">Contact</a>
-
   </div>
 </header>
 
 <section>
   <h2 class="title">About</h2>
   <div class="card">
-    Android Developer with 3+ years experience building scalable mobile apps.
+    Android Developer with 3+ years of experience building scalable, high-performance
+    mobile applications across FinTech and B2B domains. Strong expertise in Kotlin,
+    Java, MVVM, and modern Android architecture.
   </div>
 </section>
 
 <section id="projects">
   <h2 class="title">Projects</h2>
 
-  <div class="projects">
-
-    <div class="project">
-      <h3>Help Me</h3>
-      <p>Find nearest helper for car problems.</p>
-    </div>
-
-    <div class="project">
-      <h3>Reelzaty</h3>
-      <p>Video sharing app like Instagram.</p>
-    </div>
-
-    <div class="project">
-      <h3>Shop App</h3>
-      <p>E-commerce mobile app.</p>
-    </div>
-
+  <div class="project">
+    <h3>Help Me App</h3>
+    <p>App to find nearest helper for car problems with real-time matching system.</p>
+    <div class="tech">Java • Firebase • REST API • MVC</div>
+    <a href="#">GitHub →</a>
   </div>
+
+  <div class="project">
+    <h3>Reelzaty</h3>
+    <p>Video sharing app similar to Instagram with Firebase storage and authentication.</p>
+    <div class="tech">Java • Firebase • MVVM • Biometric</div>
+    <a href="#">GitHub →</a>
+  </div>
+
+  <div class="project">
+    <h3>Shop App</h3>
+    <p>E-commerce app with secure payments and modern UI.</p>
+    <div class="tech">Java • Firebase • MVVM • PayPal SDK</div>
+    <a href="#">GitHub →</a>
+  </div>
+
 </section>
 
 <section id="contact">
   <h2 class="title">Contact</h2>
-  <div class="card">
+  <div class="card contact">
     <p>Email: ahmadnabil96@hotmail.com</p>
     <p>GitHub: github.com/ahmad-nabil</p>
+    <p>Location: Amman, Jordan</p>
   </div>
 </section>
 
